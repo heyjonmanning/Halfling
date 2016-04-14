@@ -774,8 +774,9 @@
 												<td>
 												<!-- Use either a logo or your shop name as text. -->
 												<!-- Shop Name -->
-												<h1><a href="{{ shop.url }}/?utm_source=notification&utm_medium=email&utm_campaign=refund_notification">{{ shop.name }}</a></h1>											<!-- Logo -->
-											<!-- 	<a href="{{ shop.url }}/?utm_source=notification&utm_medium=email&utm_campaign=refund_notification">{{ 'logo.png' | asset_url | img_tag: shop.name }}</a> -->
+												<!-- <h1><a href="{{ shop.url }}/?utm_source=notification&utm_medium=email&utm_campaign=refund_notification">{{ shop.name }}</a></h1>-->
+												<!-- Logo -->
+												<a href="{{ shop.url }}/?utm_source=notification&utm_medium=email&utm_campaign=refund_notification">{{ 'logo.svg' | asset_url | img_tag: shop.name }}</a>
 												</td>
 												<td class="expander"></td>
 											</tr>
