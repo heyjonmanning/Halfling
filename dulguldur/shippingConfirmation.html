@@ -820,7 +820,7 @@
 													<table class="button">
 													  <tr>
 													    <td>
-													      <a href="{{ fulfillment.tracking_url }}?utm_source=notification&utm_medium=email&utm_campaign=shipping_confirmation">Track Your Order</a>
+													      <a href="{% if order_status_url %}{{ order_status_url }}{% else %}{{ fulfillment.tracking_url }}?utm_source=notification&utm_medium=email&utm_campaign=shipping_confirmation{% endif %}">Track Your Order</a>
 													    </td>
 													  </tr>
 													</table>
@@ -846,7 +846,15 @@
 										<table class="twelve columns">
 											<tr>
 												<td class="panel">
-												<p>Order {{ name }}<br />Tracking number: {{ fulfillment.tracking_number }}<br />*Please allow some time for the tracking number to show at {% if fulfillment.tracking_company %}{{ fulfillment.tracking_company }}{% else %}the shipping company{% endif %}.</p>
+												<p>Order {{ name }}</p>
+
+												{% if order_status_url %}
+                                                <p><a href="{{ order_status_url }}">Click here to see the status of this shipment</a>.</p>
+                                                {% else %}
+                                                <p>Click the links below for shipping status on these items:</p>
+                                                <p>{% for tracking_url in fulfillment.tracking_urls %} <a href="{{ tracking_url }}">{{ tracking_url }}</a><br>{% endfor %}</p>
+                                                <p>*Please allow some time for the status of the shipment to correctly display at the above address.</p>
+                                                {% endif %}
 												</td>
 												<td class="expander"></td>
 											</tr>
