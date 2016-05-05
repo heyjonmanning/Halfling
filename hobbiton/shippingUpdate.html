@@ -828,7 +828,7 @@
 													<table class="button">
 													  <tr>
 													    <td>
-													      <a href="{{ fulfillment.tracking_url }}?utm_source=notification&utm_medium=email&utm_campaign=shipping_update">Track Your Order</a>
+													      <a href="{% if order_status_url %}{{ order_status_url }}{% else %}{{ fulfillment.tracking_url }}{% endif %}{{ fulfillment.tracking_url }}?utm_source=notification&utm_medium=email&utm_campaign=shipping_update">Track Your Order</a>
 													    </td>
 													  </tr>
 													</table>
@@ -881,7 +881,7 @@
 											{% for line in fulfillment.fulfillment_line_items %}
 											<tr>
 												<td class="two sub-columns hide-for-small">
-													{% if line.line_item.product.featured_image %}<img src="{{ line.line_itemproduct.featured_image | product_img_url: 'thumb' }}" />{% endif %}
+													{% if line.product.featured_image %}<img src="{{ line.product.featured_image | product_img_url: 'thumb' }}" />{% endif %}
 												</td>
 												<td class="six sub-columns left">
 												<!-- Hola! This will break if your product title contain a '-' -->
