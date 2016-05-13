@@ -776,7 +776,9 @@
 												<!-- Shop Name -->
 												<!-- <h1><a href="{{ url }}/?utm_source=notification&utm_medium=email&utm_campaign=abandoned_checkout_notification">{{ shop.name }}</a></h1>-->
 												<!-- Logo -->
-												<a href="{{ url }}/?utm_source=notification&utm_medium=email&utm_campaign=abandoned_checkout_notification">{{ 'logo.svg' | asset_url | img_tag: shop.name }}</a>
+												<a href="{{ url }}/?utm_source=notification&utm_medium=email&utm_campaign=abandoned_checkout_notification">
+												<p style="text-align: center; margin: 0 auto; width: 360px;"><p style="text-align: center; margin: 0 auto; width: 360px;"><img src="{{ 'logo@2x.png' | asset_url }}" alt="{{ shop.name }}" /></p>
+												</a>
 												</td>
 												<td class="expander"></td>
 											</tr>
